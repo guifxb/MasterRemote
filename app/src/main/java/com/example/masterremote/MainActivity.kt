@@ -1,4 +1,4 @@
-package com.example.masterremote.core
+package com.example.masterremote
 
 import android.content.Context
 import android.os.Bundle
@@ -7,7 +7,8 @@ import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.compose.runtime.collectAsState
 import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
-import com.example.masterremote.core.di.appModule
+import com.example.masterremote.presentation.viewModel.AppViewModel
+import com.example.masterremote.di.appModule
 import com.example.masterremote.presentation.Dashboard
 import com.example.masterremote.presentation.LoginScreen
 import com.example.masterremote.ui.theme.MasterRemoteTheme

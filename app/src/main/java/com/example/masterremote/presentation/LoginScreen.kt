@@ -22,7 +22,7 @@ import androidx.compose.ui.text.input.PasswordVisualTransformation
 import androidx.compose.ui.text.input.TextFieldValue
 import androidx.compose.ui.unit.dp
 import com.example.masterremote.R
-import com.example.masterremote.data.User
+import com.example.masterremote.domain.User
 
 
 @OptIn(ExperimentalMaterial3Api::class)

@@ -1,4 +1,4 @@
-package com.example.masterremote.data
+package com.example.masterremote.domain
 
 data class User(
     val username: String,

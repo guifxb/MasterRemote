@@ -35,9 +35,9 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import com.example.masterremote.data.Feature
-import com.example.masterremote.data.defaultUser
-import com.example.masterremote.data.features
+import com.example.masterremote.domain.Feature
+import com.example.masterremote.domain.defaultUser
+import com.example.masterremote.domain.features
 
 @SuppressLint("UnusedMaterial3ScaffoldPaddingParameter")
 @OptIn(ExperimentalMaterial3Api::class)

@@ -1,11 +1,11 @@
-package com.example.masterremote.core
+package com.example.masterremote.presentation.viewModel
 
 import androidx.compose.runtime.State
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.ui.text.input.TextFieldValue
 import androidx.lifecycle.ViewModel
-import com.example.masterremote.data.User
-import com.example.masterremote.data.defaultUser
+import com.example.masterremote.domain.User
+import com.example.masterremote.domain.defaultUser
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asStateFlow

@@ -1,4 +1,4 @@
-package com.example.masterremote.data
+package com.example.masterremote.domain
 
 import com.example.masterremote.R
 
