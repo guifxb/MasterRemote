@@ -1,4 +1,4 @@
-package com.example.masterremote.screens
+package com.example.masterremote.presentation
 
 import android.annotation.SuppressLint
 import androidx.compose.foundation.Image

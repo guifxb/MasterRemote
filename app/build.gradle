@@ -62,6 +62,9 @@ dependencies {
     implementation "androidx.core:core-splashscreen:1.0.1"
     implementation "androidx.compose.material:material-icons-extended"
 
+    // Koin
+    implementation 'io.insert-koin:koin-android:3.2.0'
+
 
     // Testing
     testImplementation 'junit:junit:4.13.2'

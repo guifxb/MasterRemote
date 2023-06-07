@@ -1,4 +1,4 @@
-package com.example.masterremote.screens
+package com.example.masterremote.presentation
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.Arrangement
@@ -15,8 +15,6 @@ import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.OutlinedTextField
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.mutableStateOf
-import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.painterResource
@@ -30,12 +28,14 @@ import com.example.masterremote.data.User
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun LoginScreen(
+    usernameState: TextFieldValue,
+    onUsernameChanged: (TextFieldValue) -> Unit,
+    passwordState: TextFieldValue,
+    onPasswordChanged: (TextFieldValue) -> Unit,
     onLoginClicked: (User) -> Unit
 ) {
     val logo = R.drawable.master_remote
 
-    val usernameState = remember { mutableStateOf(TextFieldValue()) }
-    val passwordState = remember { mutableStateOf(TextFieldValue()) }
 
     Column(
         modifier = Modifier.fillMaxSize(),
@@ -51,8 +51,8 @@ fun LoginScreen(
         Spacer(modifier = Modifier.height(32.dp))
 
         OutlinedTextField(
-            value = usernameState.value,
-            onValueChange = { usernameState.value = it },
+            value = usernameState,
+            onValueChange = onUsernameChanged,
             label = { Text("Usuário") },
             modifier = Modifier.padding(horizontal = 16.dp)
         )
@@ -60,8 +60,8 @@ fun LoginScreen(
         Spacer(modifier = Modifier.height(16.dp))
 
         OutlinedTextField(
-            value = passwordState.value,
-            onValueChange = { passwordState.value = it },
+            value = passwordState,
+            onValueChange = onPasswordChanged,
             visualTransformation = PasswordVisualTransformation(),
             label = { Text("Senha") },
             modifier = Modifier.padding(horizontal = 16.dp)
@@ -74,7 +74,7 @@ fun LoginScreen(
                 containerColor = MaterialTheme.colorScheme.primary
             ),
             shape = MaterialTheme.shapes.extraSmall,
-            onClick = { onLoginClicked(User(usernameState.value.text, passwordState.value.text)) },
+            onClick = { onLoginClicked(User(usernameState.text, passwordState.text)) },
             modifier = Modifier.padding(horizontal = 16.dp)
         ) {
             Text("Login")

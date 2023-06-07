@@ -2,7 +2,7 @@ package com.example.masterremote
 
 import com.example.masterremote.data.User
 import com.example.masterremote.data.defaultUser
-import com.example.masterremote.managers.AppViewModel
+import com.example.masterremote.core.AppViewModel
 import org.junit.Assert.assertEquals
 import org.junit.Before
 import org.junit.Test
