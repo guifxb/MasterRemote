@@ -30,7 +30,10 @@ class MainActivity : ComponentActivity() {
 
             MasterRemoteTheme {
                 if (loggedIn) {
-                    Dashboard(onExitClicked = { appViewModel.exit() })
+                    Dashboard(
+                        user = appViewModel.getUser(),
+                        features = appViewModel.getFeatures(),
+                        onExitClicked = { appViewModel.exit() })
                 } else {
                     LoginScreen(
                         usernameState = appViewModel.usernameState.value,

@@ -36,32 +36,34 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.example.masterremote.domain.Feature
-import com.example.masterremote.domain.defaultUser
-import com.example.masterremote.domain.features
+import com.example.masterremote.domain.User
+
 
 @SuppressLint("UnusedMaterial3ScaffoldPaddingParameter")
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun Dashboard(onExitClicked: () -> Unit) {
+fun Dashboard(
+    user: User,
+    features: List<Feature>,
+    onExitClicked: () -> Unit) {
     Scaffold(topBar = {
         CenterAlignedTopAppBar(colors = TopAppBarDefaults.centerAlignedTopAppBarColors(
             containerColor = MaterialTheme.colorScheme.primary,
             titleContentColor = MaterialTheme.colorScheme.onPrimary,
             actionIconContentColor = MaterialTheme.colorScheme.onPrimary
-        ), title = { Text(text = "Olá, ${defaultUser.username}") }, actions = {
+        ), title = { Text(text = "Olá, ${user.username}") }, actions = {
             ExitButton(onExitClicked = onExitClicked)
         })
     }) {
         Column(modifier = Modifier.padding(16.dp)) {
             Spacer(modifier = Modifier.size(50.dp))
-            QuickInfoCard()
+            QuickInfoCard(features)
         }
     }
 }
 
-
 @Composable
-fun QuickInfoCard() {
+fun QuickInfoCard(features: List<Feature>) {
     Card(
         modifier = Modifier
             .padding(16.dp)

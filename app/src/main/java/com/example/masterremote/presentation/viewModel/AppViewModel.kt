@@ -4,15 +4,20 @@ import androidx.compose.runtime.State
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.ui.text.input.TextFieldValue
 import androidx.lifecycle.ViewModel
+import com.example.masterremote.data.FeatureRepository
+import com.example.masterremote.data.UserRepository
+import com.example.masterremote.domain.Feature
 import com.example.masterremote.domain.User
-import com.example.masterremote.domain.defaultUser
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.flow.update
 
 
-class AppViewModel : ViewModel() {
+class AppViewModel(
+    private val featureRepository: FeatureRepository,
+    private val userRepository: UserRepository
+) : ViewModel() {
 
     private val _isLogged = MutableStateFlow(false)
     val isLogged: StateFlow<Boolean> = _isLogged.asStateFlow()
@@ -31,9 +36,17 @@ class AppViewModel : ViewModel() {
         _passwordState.value = value
     }
 
+    fun getFeatures(): List<Feature> {
+        return featureRepository.getFeatures()
+    }
+
+    fun getUser(): User {
+        return userRepository.getUser()
+    }
+
 
     fun authenticate(user: User, onLoginResult: (Boolean) -> Unit) {
-        if (user == defaultUser) {
+        if (user == getUser()) {
             _isLogged.update {
                 true
             }

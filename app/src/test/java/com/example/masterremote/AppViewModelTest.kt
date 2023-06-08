@@ -1,5 +1,7 @@
 package com.example.masterremote
 
+import com.example.masterremote.data.FeatureRepository
+import com.example.masterremote.data.UserRepository
 import com.example.masterremote.domain.User
 import com.example.masterremote.domain.defaultUser
 import com.example.masterremote.presentation.viewModel.AppViewModel
@@ -13,7 +15,7 @@ sealed class AppViewModelTest {
 
     @Before
     fun setup() {
-        viewModel = AppViewModel()
+        viewModel = AppViewModel(featureRepository = FeatureRepository(), userRepository = UserRepository())
     }
 
     @Test
